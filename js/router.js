@@ -7,6 +7,14 @@ const routes = [
 
 const parseLocation = () => location.hash.slice(1).toLocaleLowerCase() || '/';
 
+/*
+    findCompnentByPath necesita como params path -> string y routes -> array
+    Dentro usa find y se define una funcion que utiliza en cada elemento del array
+    el "match" para comparar, dentro del match usa la logica definida de RegExp que
+    es una regular expresion.
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
+
+*/
 const findComponentByPath = (path, routes) => routes.find( r => r.path.match(new RegExp(`^\\${path}$`, 'gm')) ) || undefined;
 
 

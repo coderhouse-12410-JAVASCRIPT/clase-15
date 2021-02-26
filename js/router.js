@@ -22,6 +22,8 @@ const router = () => {
     const path = parseLocation(); // Obtener el path de la pagina
 
     const { component = ErrorComponent } = findComponentByPath(path, routes) || {};
-
+    // La version slim de jQuery que usabamos no tenia el fadeIn, la cambie y funciona 
+    $('#app').hide();
     $('#app').html(component.render());
+    $('#app').fadeIn(1500);
 };
